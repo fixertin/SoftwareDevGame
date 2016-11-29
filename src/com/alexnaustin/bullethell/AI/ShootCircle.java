@@ -1,7 +1,6 @@
 package com.alexnaustin.bullethell.AI;
 
 import com.alexnaustin.bullethell.AI.bulletPatterns.Circle;
-import com.alexnaustin.bullethell.AI.bulletPatterns.Pattern;
 import com.alexnaustin.bullethell.entities.Enemy;
 import com.alexnaustin.bullethell.main.Handler;
 

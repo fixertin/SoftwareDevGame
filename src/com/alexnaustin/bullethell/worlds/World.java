@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 import com.alexnaustin.bullethell.entities.Enemy;
 import com.alexnaustin.bullethell.entities.Player;
+import com.alexnaustin.bullethell.entities.enemies.BasicTestEnemy;
 import com.alexnaustin.bullethell.main.Handler;
 
 
@@ -29,7 +30,7 @@ public class World {
 	}
 	
 	private void addEnemies(){
-		enemies.add(new Enemy(handler, 150, 300));
+		enemies.add(new BasicTestEnemy(handler, -32, -32));
 	}
 	private void addCommands(){
 		fillCommands1();
@@ -38,19 +39,23 @@ public class World {
 	//this is where the enemies will all have individual
 	//methods to fill their commands
 	private void fillCommands1(){
-		enemies.get(0).addMovement(200, 270);
-		enemies.get(0).addWait(2);
+		enemies.get(0).addMovement(270, 45);
 		enemies.get(0).addShootPatternCircle(10);
-		enemies.get(0).addMovement(180, 0);
+		enemies.get(0).addMovement(230, 0);
 		enemies.get(0).addShootPatternCircle(5);
-		enemies.get(0).addMovement(200, 40);
-		enemies.get(0).addShootPatternCircle(10);
+		enemies.get(0).addMoveToEdge(315);
 	}
 	
 	public void tick(){
 		p.tick();
-		for(int i=0; i<enemies.size(); i++)
-			enemies.get(i).tick();
+		for(int i=0; i<enemies.size(); i++){
+			if(enemies.get(i).isRemoved() && enemies.get(i).getBullets().size() == 0){
+				enemies.remove(i);
+				System.out.println("removed");
+			}else{
+				enemies.get(i).tick();
+			}
+		}
 	}
 	public void render(Graphics g){
 		p.render(g);

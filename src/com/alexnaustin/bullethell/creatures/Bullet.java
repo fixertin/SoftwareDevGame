@@ -16,7 +16,6 @@ public class Bullet extends Entity{
 	private Creature shooter;
 	private double angle;
 	private double trueAngle;
-	private double triangleVelX, triangleVelY;
 	private int speed;
 	private boolean velXisNegative, velYisNegative;
 	

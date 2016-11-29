@@ -1,6 +1,5 @@
 package com.alexnaustin.bullethell.AI.bulletPatterns;
 
-import java.awt.Graphics;
 
 import com.alexnaustin.bullethell.creatures.Bullet;
 import com.alexnaustin.bullethell.entities.Enemy;
@@ -16,7 +15,7 @@ public class Circle extends Pattern{
 	
 	public void fillBullets(){
 		for(int i=0; i<(360/shotGap); i++){
-			shooter.bullets.add(new Bullet(handler, shooter.getX(), shooter.getY(), i*shotGap, shooter));
+			shooter.getBullets().add(new Bullet(handler, shooter.getX(), shooter.getY(), i*shotGap, shooter));
 		}
 	}
 

@@ -6,17 +6,12 @@ import com.alexnaustin.bullethell.entities.Enemy;
 import com.alexnaustin.bullethell.main.Handler;
 
 public class MoveTo extends AI {
-	protected double destX;
-	protected double destY;
-	protected double distance;
-	
+	private double destX;
+	private double destY;
+	private double distance;
 	private int unitX, unitY;
-	
-	protected double velx, vely;
-	
-	protected double angle;
-
-	
+	private double velx, vely;
+	private double angle;
 
 	public MoveTo(Handler handler, double distance, Enemy e, double angle) {
 		super(handler, e);
@@ -75,18 +70,13 @@ public class MoveTo extends AI {
 	}
 	
 	private void moveEnemy(){
-		if(isAtDestination()){
-			e.setVelx(0);
-			e.setVely(0);
-		} else {
-			e.setVelx(velx);
-			e.setVely(vely);
-		}
+		e.setVelx(velx);
+		e.setVely(vely);
 	}
 	private boolean isAtDestination(){
-		if(e.getHitbox().getBounds().intersects(hitbox)){
+		if(e.getHitbox().getBounds().intersects(hitbox))
 			return true;
-		} else 
+		else 
 			return false;
 		
 	}
